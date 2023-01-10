@@ -37,11 +37,11 @@ RUN apt-get update && apt-get install -y \
     && for A in /opt/v8/lib/*.so; do patchelf --set-rpath '$ORIGIN' $A; done
 
 # Compile php-v8js itself
-RUN cd /tmp \
-    && git clone https://github.com/phpv8/v8js.git \
-    && cd v8js \
-    && phpize \
-    && ./configure --with-v8js=/opt/v8/ LDFLAGS="-lstdc++" CPPFLAGS="-DV8_COMPRESS_POINTERS" \
-    && make \
-    && make test \
-    && make install
+# RUN cd /tmp \
+#     && git clone https://github.com/phpv8/v8js.git \
+#     && cd v8js \
+#     && phpize \
+#     && ./configure --with-v8js=/opt/v8 LDFLAGS="-lstdc++" CPPFLAGS="-DV8_COMPRESS_POINTERS" \
+#     && make \
+#     && make test \
+#     && make install
